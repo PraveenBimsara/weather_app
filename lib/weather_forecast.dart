@@ -23,21 +23,24 @@ class card extends StatelessWidget {
             children: [
               Text(
                 time,
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                maxLines: 1,
+                overflow: TextOverflow.clip,
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
-                height: 8,
+                height: 4,
               ),
               Icon(
                 icon,
-                size: 32,
+                size: 24,
               ),
               const SizedBox(
-                height: 8,
+                height: 4,
               ),
               Text(
                 temaparature,
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 16),
               ),
             ],
           ),
