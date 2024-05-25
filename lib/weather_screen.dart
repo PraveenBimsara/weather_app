@@ -50,6 +50,13 @@ class _WeatherScreenState extends State<WeatherScreen> {
     });
   }
 
+  void _resetToDefaultCity() {
+    setState(() {
+      cityName = 'London';
+      textEditingController.clear();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +65,12 @@ class _WeatherScreenState extends State<WeatherScreen> {
           'Weather App',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
+        backgroundColor: const Color.fromARGB(255, 115, 198, 130),
         centerTitle: true,
+        leading: IconButton(
+          onPressed: _resetToDefaultCity,
+          icon: const Icon(Icons.arrow_back),
+        ),
         actions: [
           IconButton(
               onPressed: () {
@@ -109,10 +121,15 @@ class _WeatherScreenState extends State<WeatherScreen> {
                             Radius.circular(16),
                           ),
                         ),
+                        focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 115, 198, 130)),
+                          borderRadius: BorderRadius.all(Radius.circular(16)),
+                        ),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   SizedBox(
@@ -194,7 +211,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                               DateTime.parse(weatherForecast['dt_txt']);
 
                           return card(
-                            time: DateFormat.j().format(time),
+                            time: DateFormat.yMd().format(time),
                             icon: weatherSky == 'Clouds' || weatherSky == 'Rain'
                                 ? Icons.cloud
                                 : Icons.sunny,

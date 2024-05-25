@@ -20,7 +20,7 @@ class card extends StatelessWidget {
         width: 120,
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
               Text(
