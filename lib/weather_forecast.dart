@@ -4,11 +4,13 @@ class card extends StatelessWidget {
   final String time;
   final IconData icon;
   final String temaparature;
-  const card(
-      {super.key,
-      required this.time,
-      required this.icon,
-      required this.temaparature});
+
+  const card({
+    super.key,
+    required this.time,
+    required this.icon,
+    required this.temaparature,
+  });
 
   @override
   Widget build(BuildContext context) {
